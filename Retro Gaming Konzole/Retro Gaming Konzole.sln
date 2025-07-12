@@ -5,6 +5,10 @@ VisualStudioVersion = 17.13.35931.197 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Retro Gaming Konzole", "Retro Gaming Konzole\Retro Gaming Konzole.csproj", "{3498F698-D750-464B-BFD6-90A55480C798}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{CA6A4A59-468D-413B-A2FE-8BD90D81FC1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{56D6B342-5A5F-432E-9F3B-8D6905173276}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{3498F698-D750-464B-BFD6-90A55480C798}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3498F698-D750-464B-BFD6-90A55480C798}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3498F698-D750-464B-BFD6-90A55480C798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA6A4A59-468D-413B-A2FE-8BD90D81FC1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA6A4A59-468D-413B-A2FE-8BD90D81FC1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA6A4A59-468D-413B-A2FE-8BD90D81FC1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA6A4A59-468D-413B-A2FE-8BD90D81FC1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56D6B342-5A5F-432E-9F3B-8D6905173276}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D6B342-5A5F-432E-9F3B-8D6905173276}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D6B342-5A5F-432E-9F3B-8D6905173276}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D6B342-5A5F-432E-9F3B-8D6905173276}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

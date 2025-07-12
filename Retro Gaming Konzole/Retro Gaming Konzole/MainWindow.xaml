@@ -4,9 +4,118 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Retro_Gaming_Konzole"
+        xmlns:notifications="clr-namespace:Notification.Wpf.Controls;assembly=Notification.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        Title="MainWindow" 
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen">
+  
+    <Grid 
+        Height="650" 
+        Width="450">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Canvas 
+            Width="450" 
+            Height="650"
+            IsHitTestVisible="False">
+            <Canvas.Resources>
+                <DropShadowEffect
+                x:Key="MouseOverDropShadowEffect"
+                Direction="320"
+                Opacity="80"
+                ShadowDepth="10"
+                Color="PeachPuff" />
+            </Canvas.Resources>
+        <Path
+                Name="UIPath"
+                Fill="LightGray"
+                Stroke="Black"
+                StrokeThickness="3"
+            >
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="0,0" IsClosed="True">
+                            <LineSegment Point="0,650" />
+                            <LineSegment Point="350,650" />
+                            <ArcSegment Point="450,550"
+                            Size="100,100"
+                            SweepDirection="Counterclockwise"
+                            RotationAngle="180"
+                            IsLargeArc="False" />
+                            <LineSegment Point="450,0" />
+                            <LineSegment Point="0,0" />
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+        </Canvas>
+       
+        <notifications:NotificationArea
+                    x:Name="WindowNotificationArea"
+                    Width="450"
+                    Panel.ZIndex="1000"
+                    MaxItems="5"
+                    Position="TopRight"/>
 
+
+        <DockPanel LastChildFill="True" Grid.Row="0">
+
+                    <Frame 
+                        x:Name="MainFrame"
+                        DockPanel.Dock="Top"
+                        NavigationUIVisibility="Hidden"
+                        Source="Pages/LoginPage.xaml" 
+                        VerticalAlignment="Center"
+                    />
+       
+        </DockPanel>
+
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- joystick -->
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Row="1" Grid.Column="0" Content="◄" />
+                <Button Grid.Row="0" Grid.Column="1" Content="▲" />
+                <Button Grid.Row="1" Grid.Column="2" Content="►" />
+                <Button Grid.Row="2" Grid.Column="1" Content="▼" />
+            </Grid>
+
+            <!-- Start/Select -->
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                <Button Content="Start" Width="60" Margin="20 5 0 0 " Click="startButton_Click" />
+                <Button Content="Exit" Width="60" Margin="20 5 0 0" Click="exitButton_Click"  />
+            </StackPanel>
+
+            <!-- A/B dugmad -->
+            <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Content="A" Width="50" Height="50" Margin="5" />
+                <Button Content="B" Width="50" Height="50" Margin="5" />
+            </StackPanel>
+
+        </Grid>
     </Grid>
+       
 </Window>
