@@ -66,18 +66,36 @@
 
 
         <DockPanel LastChildFill="True" Grid.Row="0">
-
+                    
                     <Frame 
                         x:Name="MainFrame"
                         DockPanel.Dock="Top"
                         NavigationUIVisibility="Hidden"
-                        Source="Pages/LoginPage.xaml" 
                         VerticalAlignment="Center"
+                        
                     />
        
         </DockPanel>
 
-        <Grid Grid.Row="1" Margin="20">
+
+        <Grid Grid.Row="1" Margin="10">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+        <TextBlock
+            Grid.Row="0"
+            Text="IUuIS RETRO GAME CONSOLES"
+            Foreground="DarkBlue"
+            FontWeight="DemiBold"
+            FontSize="16"
+            />
+
+            <Grid Grid.Row="1">
+                
+         
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*" />
                 <ColumnDefinition Width="*" />
@@ -97,24 +115,81 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Row="1" Grid.Column="0" Content="◄" />
-                <Button Grid.Row="0" Grid.Column="1" Content="▲" />
-                <Button Grid.Row="1" Grid.Column="2" Content="►" />
-                <Button Grid.Row="2" Grid.Column="1" Content="▼" />
+                <Button
+                    Background="#222222"
+                    Foreground="WhiteSmoke"
+                    x:Name="leftGameBoyButton"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Content="◄" />
+                <Button
+                    Background="#222222"
+                    Foreground="WhiteSmoke"
+                    x:Name="upGameBoyButton"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Content="▲" />
+                <Button
+                    Background="#222222"
+                    Foreground="WhiteSmoke"
+                    x:Name="rightGameBoyButton"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Content="►" />
+                <Button
+                    Background="#222222"
+                    Foreground="WhiteSmoke"
+                    x:Name="downGameBoyButton"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Content="▼" />
             </Grid>
 
             <!-- Start/Select -->
-            <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                <Button Content="Start" Width="60" Margin="20 5 0 0 " Click="startButton_Click" />
-                <Button Content="Exit" Width="60" Margin="20 5 0 0" Click="exitButton_Click"  />
+            <StackPanel
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" >
+                <Button
+                    Background="DimGray"
+                    Foreground="WhiteSmoke"
+                    Content="Log in"
+                    Width="60" Margin="20 5 0 0 "
+                    Click="startButton_Click"
+                    x:Name="startButton"/>
+                <Button
+                    Background="DimGray"
+                    Foreground="WhiteSmoke"
+                    Content="Exit"
+                    Width="60"
+                    Margin="20 5 0 0"
+                    Click="exitButton_Click"
+                    x:Name="exitButton"/>
             </StackPanel>
 
             <!-- A/B dugmad -->
-            <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Content="A" Width="50" Height="50" Margin="5" />
-                <Button Content="B" Width="50" Height="50" Margin="5" />
+            <StackPanel
+                Grid.Column="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+                <Button
+                    Background="Purple"
+                    Foreground="WhiteSmoke"
+                    x:Name="aGameBoyButton"
+                    Content="A"
+                    Width="50"
+                    Height="50"
+                    Margin="5" Click="aGameBoyButton_Click" />
+                <Button
+                    Background="Purple"
+                    Foreground="WhiteSmoke"
+                    x:Name="bGameBoyButton"
+                    Content="B"
+                    Width="50"
+                    Height="50"
+                    Margin="5" />
             </StackPanel>
-
+            </Grid>
         </Grid>
     </Grid>
        

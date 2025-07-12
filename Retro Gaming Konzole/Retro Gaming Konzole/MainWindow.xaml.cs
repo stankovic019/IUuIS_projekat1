@@ -27,13 +27,18 @@ namespace Retro_Gaming_Konzole
         private NotificationManager notificationManager;
         public ILoginService loginService;
         public User user;
+        public LoginPage loginPage;
+        public DataTablePage dataTablePage;
 
         public MainWindow()
         {
             InitializeComponent();
             loginService = new LoginService();
             notificationManager = new NotificationManager();
-            
+            loginPage = new LoginPage();
+            MainFrame.Content = loginPage; //prvo treba prikazati LoginPage
+            aGameBoyButton.Content = "Clear\nInput"; //dodato je ovde radi prelaza teksta u novi red, estetski
+
         }
 
         public void SendToastNotification(string title, string message, NotificationType type)
@@ -70,16 +75,36 @@ namespace Retro_Gaming_Konzole
                 }
                 else
                 {
-                    SendToastNotification($"Welcome {username}!", "Login success", NotificationType.Success);
+                    SendToastNotification($"Welcome {user.username}!", "Login success", NotificationType.Success);
+                    dataTablePage = new DataTablePage(); //ako se uspesno logovao, otvara mi novi data table page, bilo da je tek usao u aplikaciju, ili se izlogovao, da bi mogle da se primene izmene itd
+                    MainFrame.Content = dataTablePage;
+                    exitButton.Content = "Log out";
                 }
             }
         }
 
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Do you want to exit the application?", "Leaving?", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+
+            if (MainFrame.Content is LoginPage)
             {
-                this.Close();
+                if (MessageBox.Show("Do you want to exit the application?", "Leaving?", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                    this.Close();
+                
+            }
+            else
+            {
+                MainFrame.Content = loginPage;
+                SendToastNotification($"Goodbye {user.username}!", "Logged out.", NotificationType.Information);
+                exitButton.Content = "Exit";
+            }
+        }
+
+        private void aGameBoyButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.Content is LoginPage)
+            { 
+                loginPage.clearInput(); 
             }
         }
     }

@@ -42,8 +42,16 @@ namespace Retro_Gaming_Konzole.Pages
 
         public (string, string) sendData()
         {
-            return (usernameTextBox.Text, passwordBox.Password);
+            string password = passwordBox.Password;
+            passwordBox.Password = passwordTextBox.Text = string.Empty; //prilikom logina, brisemo password iz memorije jer je to senzitivna vrednost
+            return (usernameTextBox.Text, password);
         }
+
+        public void clearInput() 
+        { 
+          usernameTextBox.Text = passwordBox.Password = passwordTextBox.Text = string.Empty; 
+        }
+
 
     }
 }
