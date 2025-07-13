@@ -10,7 +10,48 @@
 
     <Border Padding="10">
 
-        <TextBlock Foreground="White" Text="nigga" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Grid>
+            <DataGrid 
+        x:Name="ConsolesDataGrid"
+        Margin="10 5 10 0" 
+        ItemsSource="{Binding retroConsoles}" 
+        IsReadOnly="True" 
+        Height="420"
+        AutoGenerateColumns="False"
+        ScrollViewer.CanContentScroll="True" 
+        ScrollViewer.VerticalScrollBarVisibility="Auto"
+        ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Select">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" HorizontalAlignment="Center" Checked="CheckBox_Checked"
+                                          x:Name="selectCheckBox"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn
+                        Header="Info"
+                        Binding="{Binding rtfPath}" />
+                    <DataGridTemplateColumn Header="Image">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding imgPath}" Width="100" Height="60" Stretch="UniformToFill"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn
+                        Header="Date Created"
+                        Binding="{Binding date}"/>
+                    <DataGridTextColumn 
+                        Header="Name" 
+                        Binding="{Binding name}"/>
+                    <DataGridTextColumn 
+                        Header="Expirience" 
+                        Binding="{Binding consoleExpirience}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
 
 
     </Border>

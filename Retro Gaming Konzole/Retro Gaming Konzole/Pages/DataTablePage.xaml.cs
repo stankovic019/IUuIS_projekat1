@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Domain.Models;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +21,34 @@ namespace Retro_Gaming_Konzole.Pages
     /// Interaction logic for DataTablePage.xaml
     /// </summary>
     public partial class DataTablePage : Page
-    {
+    {   
+        public ObservableCollection<RetroConsole> retroConsoles { get; set; }
+        MainWindow mainWindow;
+
         public DataTablePage()
         {
             InitializeComponent();
+            mainWindow = (MainWindow)Application.Current.MainWindow;
+            retroConsoles = mainWindow.retroConsoles;
+            DataContext = this;
+        }
+
+        public void selectOrDeselectAll()
+        {
+            
+            int num = ConsolesDataGrid.Items.Count;
+
+            for(int i = 0; i < num; ++i)
+            {
+                ConsolesDataGrid.SelectedIndex = i;
+
+                this.CheckBox_Checked(this, new RoutedEventArgs());
+            }
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            retroConsoles[ConsolesDataGrid.SelectedIndex].IsSelected = !retroConsoles[ConsolesDataGrid.SelectedIndex].IsSelected;
         }
     }
 }

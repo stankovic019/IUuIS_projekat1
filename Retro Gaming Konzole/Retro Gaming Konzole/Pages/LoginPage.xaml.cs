@@ -20,9 +20,11 @@ namespace Retro_Gaming_Konzole.Pages
     /// </summary>
     public partial class LoginPage : Page
     {
+       
         public LoginPage()
         {
             InitializeComponent();
+
         }
 
         private void seePasswordButton_Click(object sender, RoutedEventArgs e)

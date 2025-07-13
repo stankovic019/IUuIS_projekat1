@@ -11,7 +11,7 @@
         WindowStyle="None"
         Title="MainWindow" 
         SizeToContent="WidthAndHeight"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Closing="Window_Closing" Loaded="Window_Loaded">
   
     <Grid 
         Height="650" 
@@ -128,7 +128,7 @@
                     x:Name="upGameBoyButton"
                     Grid.Row="0"
                     Grid.Column="1"
-                    Content="▲" />
+                    Content="▲" Click="upGameBoyButton_Click" />
                 <Button
                     Background="#222222"
                     Foreground="WhiteSmoke"
@@ -187,7 +187,7 @@
                     Content="B"
                     Width="50"
                     Height="50"
-                    Margin="5" />
+                    Margin="5" Click="bGameBoyButton_Click" />
             </StackPanel>
             </Grid>
         </Grid>
