@@ -1,23 +1,12 @@
-﻿using Domain.Enums;
-using Domain.Helpers;
-using Domain.Models;
-using Microsoft.Xaml.Behaviors;
-using System;
-using System.Collections.Generic;
+﻿using Domain.Models;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Retro_Gaming_Konzole.Pages
 {
@@ -26,7 +15,7 @@ namespace Retro_Gaming_Konzole.Pages
     /// </summary>
     public partial class AddConsolePage : Page
     {
-        
+
         MainWindow mainWindow;
 
         public AddConsolePage()
@@ -52,7 +41,7 @@ namespace Retro_Gaming_Konzole.Pages
         {
             if (FontFamilyComboBox.SelectedItem != null && !EditorRichTextBox.Selection.IsEmpty)
             {
-               
+
                 EditorRichTextBox.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, FontFamilyComboBox.SelectedItem);
             }
         }
@@ -65,7 +54,7 @@ namespace Retro_Gaming_Konzole.Pages
                 ComboBoxItem selectedItem = FontSizeComboBox.SelectedItem as ComboBoxItem;
 
                 if (selectedItem != null && double.TryParse(selectedItem.Content.ToString(), out double size))
-                    
+
                     EditorRichTextBox.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, size);
             }
 
@@ -80,7 +69,7 @@ namespace Retro_Gaming_Konzole.Pages
 
                 if (!EditorRichTextBox.Selection.IsEmpty)
                 {
-                    
+
                     EditorRichTextBox.Selection.ApplyPropertyValue(TextElement.ForegroundProperty, brush);
                 }
             }
@@ -149,7 +138,8 @@ namespace Retro_Gaming_Konzole.Pages
                 oneOrMoreError = true;
             }
 
-            if (consoleImgPathTextBox.Text == string.Empty) {
+            if (consoleImgPathTextBox.Text == string.Empty)
+            {
                 mainWindow.SendToastNotification("\"Image\" Error", "Image is not selected.", Notification.Wpf.NotificationType.Error);
                 oneOrMoreError = true;
             }
@@ -162,7 +152,7 @@ namespace Retro_Gaming_Konzole.Pages
                 oneOrMoreError = true;
             }
 
-            if (!oneOrMoreError) 
+            if (!oneOrMoreError)
             {
                 string path = $"rtfs\\{consoleNameTextBox.Text}.rtf";
 

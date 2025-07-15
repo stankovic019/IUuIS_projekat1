@@ -1,19 +1,10 @@
 ﻿using Domain.Models;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Retro_Gaming_Konzole.Pages
 {
@@ -29,12 +20,15 @@ namespace Retro_Gaming_Konzole.Pages
         {
             InitializeComponent();
             this.retroConsole = retroConsole;
-            mainWindow = (MainWindow)Application.Current.MainWindow;
 
             consoleNameTextBlock.Text = retroConsole.name;
             consoleReleaseYearTextBlock.Text = retroConsole.consoleReleaseYear.ToString();
             dateCreatedTextBlock.Text = retroConsole.date;
-            
+
+            int wordCount = 0;
+
+
+
             if (File.Exists(retroConsole.imgPath))
             {
                 previewImage.Source = new BitmapImage(new Uri(retroConsole.imgPath));
@@ -45,7 +39,7 @@ namespace Retro_Gaming_Konzole.Pages
 
                 //we need rich text box because of the "Document" property that he has, so we first
                 //need to open rtb to load all the data and then that document to send to viewer
-                
+
                 RichTextBox tempRtb = new RichTextBox();
                 using (FileStream fs = new FileStream(retroConsole.rtfPath, FileMode.Open, FileAccess.Read))
                 {
@@ -69,6 +63,9 @@ namespace Retro_Gaming_Konzole.Pages
 
                 rtfViewer.Document = newDoc;
             }
+            string text = new TextRange(rtfViewer.Document.ContentStart, rtfViewer.Document.ContentEnd).Text;
+            wordCount = Regex.Matches(text, @"\b\p{L}+\b").Count; //regex: from edge to edge, and counting alphanumeric signs without blanks
+            WordCountTextBlock.Text = $"Words: {wordCount}";
         }
     }
 }

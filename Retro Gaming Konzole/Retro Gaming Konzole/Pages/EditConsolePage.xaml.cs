@@ -1,21 +1,13 @@
 ﻿using Domain.Models;
 using Notification.Wpf;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Retro_Gaming_Konzole.Pages
 {
@@ -37,7 +29,7 @@ namespace Retro_Gaming_Konzole.Pages
             FontColorComboBox.SelectedIndex = 7;
 
             consoleNameTextBox.Text = retroConsole.name;
-            consoleReleaseYearTextBox.Text = retroConsole.consoleReleaseYear.ToString(); 
+            consoleReleaseYearTextBox.Text = retroConsole.consoleReleaseYear.ToString();
             consoleImgPathTextBox.Text = retroConsole.imgPath;
 
             if (File.Exists(retroConsole.imgPath))
@@ -67,7 +59,7 @@ namespace Retro_Gaming_Konzole.Pages
         {
             if (FontFamilyComboBox.SelectedItem != null && !EditorRichTextBox.Selection.IsEmpty)
             {
-                
+
                 EditorRichTextBox.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, FontFamilyComboBox.SelectedItem);
             }
         }
@@ -80,7 +72,7 @@ namespace Retro_Gaming_Konzole.Pages
                 ComboBoxItem selectedItem = FontSizeComboBox.SelectedItem as ComboBoxItem;
 
                 if (selectedItem != null && double.TryParse(selectedItem.Content.ToString(), out double size))
-                   
+
                     EditorRichTextBox.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, size);
             }
 
@@ -180,20 +172,20 @@ namespace Retro_Gaming_Konzole.Pages
                 string path = $"rtfs\\{consoleNameTextBox.Text}.rtf";
 
                 //if the name is the same, so is the name of the file
-                if (consoleNameTextBox.Text == retroConsole.name || !File.Exists(path)) 
+                if (consoleNameTextBox.Text == retroConsole.name || !File.Exists(path))
                 {
                     try
                     {
                         //try to delete old rtf file
-                        File.Delete(retroConsole.rtfPath); 
+                        File.Delete(retroConsole.rtfPath);
                     }
-                    catch (Exception ex) 
+                    catch (Exception ex)
                     {
                         mainWindow.SendToastNotification("\"RTF\" Error", $"Can't delete {retroConsole.name}.rtf file.\n" +
                                                                              $"Maybe it's used by another process.", NotificationType.Error);
                         return false;
                     }
-                    
+
 
                     using (FileStream fs = new FileStream(path, FileMode.Create))
                     {

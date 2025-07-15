@@ -86,7 +86,7 @@
             
         <TextBlock 
             Grid.Row="0"
-            Text="IUuIS RETRO GAME CONSOLES"
+            Text="IUuIS RETRO GAME CONSOLES CMS"
             Foreground="#32397d"
             FontWeight="DemiBold"
             FontSize="16"

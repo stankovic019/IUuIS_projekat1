@@ -8,16 +8,8 @@ using Retro_Gaming_Konzole.Pages;
 using Services.LoginService;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Retro_Gaming_Konzole
 {
@@ -51,7 +43,7 @@ namespace Retro_Gaming_Konzole
             MainFrame.Content = loginPage; //prvo treba prikazati LoginPage
             currentPage = loginPage;
             retroConsoles = serializer.DeSerializeObject<ObservableCollection<RetroConsole>>("RetroConsoles.xml");
-            if(retroConsoles == null)
+            if (retroConsoles == null)
             {
                 retroConsoles = new ObservableCollection<RetroConsole>();
             }
@@ -65,7 +57,7 @@ namespace Retro_Gaming_Konzole
 
         public void SendToastNotification(string title, string message, NotificationType type)
         {
-            ShowToastNotification(new ToastNotification(title, message, type)); 
+            ShowToastNotification(new ToastNotification(title, message, type));
         }
 
         public void ShowToastNotification(ToastNotification toastNotification)
@@ -73,9 +65,9 @@ namespace Retro_Gaming_Konzole
             notificationManager.Show(toastNotification.Title, toastNotification.Message, toastNotification.Type, "WindowNotificationArea");
         }
 
-        public  void startButton_Click(object sender, RoutedEventArgs e)
+        public void startButton_Click(object sender, RoutedEventArgs e)
         {
-            if(MainFrame.Content is LoginPage page)
+            if (MainFrame.Content is LoginPage page)
             {
                 string username, password;
                 (username, password) = page.sendData();
@@ -123,18 +115,18 @@ namespace Retro_Gaming_Konzole
                     }
                 }
                 else
-                        SendToastNotification("\"Select All\" Not permitted", $"You don't have permission to select rows.", NotificationType.Error);
+                    SendToastNotification("\"Select All\" Not permitted", $"You don't have permission to select rows.", NotificationType.Error);
 
             }
 
-            if(MainFrame.Content is AddConsolePage)
+            if (MainFrame.Content is AddConsolePage)
             {
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Filter = "Image Files | *.jpg; *.png;";
-                ofd.InitialDirectory = Environment.SpecialFolder.Desktop.ToString();
+                ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 ofd.Title = "Please import your Console image";
 
-                if(ofd.ShowDialog() == true)
+                if (ofd.ShowDialog() == true)
                 {
                     addConsolePage.consoleImgPathTextBox.Text = ofd.FileName;
                     SendToastNotification("Import", "Image imported.", NotificationType.Information);
@@ -149,7 +141,7 @@ namespace Retro_Gaming_Konzole
             {
                 OpenFileDialog ofd = new OpenFileDialog();
                 ofd.Filter = "Image Files | *.jpg; *.png;";
-                ofd.InitialDirectory = Environment.SpecialFolder.Desktop.ToString();
+                ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 ofd.Title = "Please import your Console image";
 
                 if (ofd.ShowDialog() == true)
@@ -163,7 +155,7 @@ namespace Retro_Gaming_Konzole
                 }
             }
 
-            if(MainFrame.Content is ViewConsolePage)
+            if (MainFrame.Content is ViewConsolePage)
             {
                 dataTablePage = new DataTablePage();
                 MainFrame.Content = dataTablePage;
@@ -179,9 +171,9 @@ namespace Retro_Gaming_Konzole
             {
                 this.Close();
             }
-            
 
-            if(MainFrame.Content is DataTablePage) 
+
+            if (MainFrame.Content is DataTablePage)
             {
                 if (MessageBox.Show("Do you want to log out?", "Log out?", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
@@ -192,16 +184,16 @@ namespace Retro_Gaming_Konzole
                 }
             }
 
-            if(MainFrame.Content is AddConsolePage)
+            if (MainFrame.Content is AddConsolePage)
             {
-                if(MessageBox.Show("Do you want to abort adding a new console?", "Abort", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if (MessageBox.Show("Do you want to abort adding a new console?", "Abort", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     dataTablePage = new DataTablePage();
                     MainFrame.Content = dataTablePage;
                     currentPage = dataTablePage;
                     SendToastNotification("Aborted", "New console adding aborted", NotificationType.Notification);
-                    setButtonLabels(); 
-                }   
+                    setButtonLabels();
+                }
             }
 
             if (MainFrame.Content is EditConsolePage)
@@ -221,11 +213,12 @@ namespace Retro_Gaming_Konzole
         private void aGameBoyButton_Click(object sender, RoutedEventArgs e)
         {
             if (MainFrame.Content is LoginPage)
-            { 
-                loginPage.clearInput(); 
+            {
+                loginPage.clearInput();
             }
 
-            if (MainFrame.Content is DataTablePage) {
+            if (MainFrame.Content is DataTablePage)
+            {
                 if (user.role == UserRole.Admin)
                 {
                     addConsolePage = new AddConsolePage();
@@ -267,7 +260,8 @@ namespace Retro_Gaming_Konzole
         private void bGameBoyButton_Click(object sender, RoutedEventArgs e)
         {
 
-            if (MainFrame.Content is LoginPage) {
+            if (MainFrame.Content is LoginPage)
+            {
 
                 SendToastNotification("About Application", "Created by Dimitrije Stankovic, PR81/2022\n" +
                                                 "FTN, Novi Sad, 2024/25.", NotificationType.Information);
@@ -297,13 +291,13 @@ namespace Retro_Gaming_Konzole
                                     retroConsoles.Remove(console);
                                     num++;
                                 }
-                                catch (Exception ex) 
+                                catch (Exception ex)
                                 {
                                     SendToastNotification("\"RTF\" Error", $"Can't delete {console.name}.rtf file.\n" +
                                                                              $"Maybe it's used by another process.", NotificationType.Error);
                                 }
                             }
-                            if(num > 0)
+                            if (num > 0)
                                 SendToastNotification("Success", $"Successfully removed {num} {(num == 1 ? "row" : "rows")}.", NotificationType.Success);
                         }
                     }
@@ -314,9 +308,10 @@ namespace Retro_Gaming_Konzole
                     SendToastNotification("\"Remove\" Not permitted", "You do not have permission to delete rows from the table.", NotificationType.Error);
             }
 
-            if (MainFrame.Content is AddConsolePage) {
-                
-                if(MessageBox.Show("Do you want to clear all the data from cells?\n" +
+            if (MainFrame.Content is AddConsolePage)
+            {
+
+                if (MessageBox.Show("Do you want to clear all the data from cells?\n" +
                     "WARNING: THIS IS IRREVERSIBLE!", "Clear all", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
                 {
                     addConsolePage.clearAll();
@@ -348,7 +343,7 @@ namespace Retro_Gaming_Konzole
                     currentPage = editConsolePage;
                     setButtonLabels();
                 }
-                catch (Exception e) 
+                catch (Exception e)
                 {
                     SendToastNotification("\"RTF\" Error", $"Can't open {_console.name}.rtf file.\n" +
                                                                              $"Maybe it's used by another process.", NotificationType.Error);
@@ -396,7 +391,7 @@ namespace Retro_Gaming_Konzole
 
         private void setButtonLabels()
         {
-            if(currentPage is LoginPage)
+            if (currentPage is LoginPage)
             {
                 startButton.Content = "Log in";
                 startButton.ToolTip = "Log into application";
@@ -409,7 +404,7 @@ namespace Retro_Gaming_Konzole
                 return;
             }
 
-            if(currentPage is DataTablePage)
+            if (currentPage is DataTablePage)
             {
                 startButton.Content = "Select All";
                 startButton.ToolTip = "Select or Deselect all rows in table";
@@ -422,7 +417,7 @@ namespace Retro_Gaming_Konzole
                 return;
             }
 
-            if(currentPage is AddConsolePage)
+            if (currentPage is AddConsolePage)
             {
                 startButton.Content = "Import";
                 startButton.ToolTip = "Import image";
@@ -436,7 +431,7 @@ namespace Retro_Gaming_Konzole
 
             }
 
-            if(currentPage is EditConsolePage)
+            if (currentPage is EditConsolePage)
             {
                 startButton.Content = "Import";
                 startButton.ToolTip = "Import image";
@@ -449,7 +444,7 @@ namespace Retro_Gaming_Konzole
                 return;
             }
 
-            if(currentPage is ViewConsolePage)
+            if (currentPage is ViewConsolePage)
             {
                 startButton.Content = "Exit Preview";
                 startButton.ToolTip = "Exit preview and go back to the table page";
@@ -464,6 +459,6 @@ namespace Retro_Gaming_Konzole
 
         }
 
-        
+
     }
 }

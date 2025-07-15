@@ -1,19 +1,8 @@
 ﻿using Domain.Models;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Retro_Gaming_Konzole.Pages
 {
@@ -21,7 +10,7 @@ namespace Retro_Gaming_Konzole.Pages
     /// Interaction logic for DataTablePage.xaml
     /// </summary>
     public partial class DataTablePage : Page
-    {   
+    {
         public ObservableCollection<RetroConsole> retroConsoles { get; set; }
         public bool IsAdmin { get; set; }
         public bool allSelected { get; set; } = false;
@@ -43,7 +32,7 @@ namespace Retro_Gaming_Konzole.Pages
 
             foreach (var console in retroConsoles)
             {
-                    console.IsSelected = true;
+                console.IsSelected = true;
             }
 
             allSelected = true;
@@ -97,7 +86,7 @@ namespace Retro_Gaming_Konzole.Pages
             {
                 mainWindow.hyperLink(selectedConsole);
             }
-               
+
         }
     }
 }

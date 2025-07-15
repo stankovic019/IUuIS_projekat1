@@ -30,9 +30,11 @@
                 <Image 
                     Grid.Column="0"
                     Margin="5"   
-                    Stretch="UniformToFill"
                     x:Name="previewImage"
-                    ToolTip="Imported image"/>
+                    ToolTip="Imported image"
+                    Stretch="Uniform"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"/>
 
                 <Grid Grid.Column="1">
 

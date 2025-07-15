@@ -2,12 +2,7 @@
 using Domain.Helpers;
 using Domain.Models;
 using Domain.Services;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Services.LoginService
 {
@@ -17,10 +12,11 @@ namespace Services.LoginService
         public ObservableCollection<User> users;
         private DataIO serializer = new DataIO();
 
-        public LoginService() {
+        public LoginService()
+        {
 
             users = serializer.DeSerializeObject<ObservableCollection<User>>("Users.xml");
-            if(users == null)
+            if (users == null)
             {
                 users = new ObservableCollection<User>();
             }

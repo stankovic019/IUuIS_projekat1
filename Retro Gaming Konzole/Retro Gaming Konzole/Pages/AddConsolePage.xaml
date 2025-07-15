@@ -89,14 +89,16 @@
                     x:Name="consoleImgPathTextBox" MouseDoubleClick="consoleImgPathTextBox_MouseDoubleClick" TextChanged="consoleImgPathTextBox_TextChanged"
                     ToolTip="Double-click this or click the 'import' button to import the image"
                     />
-                
+
                 <Image 
                     Grid.Column="2"
                     Margin="5 0"   
                     Height="55"
-                    Stretch="UniformToFill"
                     x:Name="previewImage"
-                    ToolTip="Imported image"/>
+                    ToolTip="Imported image"
+                    Stretch="Uniform"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"/>
             </Grid>
 
             <Grid Grid.Row="3">

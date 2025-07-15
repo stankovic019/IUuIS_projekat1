@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace Domain.Models
 {
@@ -15,7 +10,7 @@ namespace Domain.Models
         public string imgPath { get; set; } //put ka slici
         public string rtfPath { get; set; } //put ka rtf
         public int consoleReleaseYear { get; set; } //brojevno polje koje mora uneti korisnik
-        public string date {  get; set; } //datum dodavanja
+        public string date { get; set; } //datum dodavanja
 
         private bool _isSelected;
         public bool IsSelected

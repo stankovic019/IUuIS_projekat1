@@ -43,10 +43,6 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <!--<DataGridTextColumn 
-                        Header="Name" 
-                        Binding="{Binding name}"
-                        IsReadOnly="True"/>-->
                     <DataGridTextColumn 
                         Header="Released" 
                         Binding="{Binding consoleReleaseYear}"
@@ -56,7 +52,12 @@
                         IsReadOnly="True">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Source="{Binding imgPath}" Width="100" Height="60" Stretch="UniformToFill"/>
+                                <Image Source="{Binding imgPath}"
+                                       Width="100"
+                                       Height="60" 
+                                       Stretch="Uniform"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
