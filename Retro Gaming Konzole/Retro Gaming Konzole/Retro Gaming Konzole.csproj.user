@@ -8,7 +8,13 @@
     <Compile Update="Pages\DataTablePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\EditConsolePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\LoginPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\ViewConsolePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

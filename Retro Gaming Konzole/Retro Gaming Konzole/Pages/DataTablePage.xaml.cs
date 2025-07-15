@@ -23,6 +23,8 @@ namespace Retro_Gaming_Konzole.Pages
     public partial class DataTablePage : Page
     {   
         public ObservableCollection<RetroConsole> retroConsoles { get; set; }
+        public bool IsAdmin { get; set; }
+        public bool allSelected { get; set; } = false;
         MainWindow mainWindow;
 
         public DataTablePage()
@@ -31,24 +33,71 @@ namespace Retro_Gaming_Konzole.Pages
             mainWindow = (MainWindow)Application.Current.MainWindow;
             retroConsoles = mainWindow.retroConsoles;
             DataContext = this;
+            IsAdmin = mainWindow.user.role == Domain.Enums.UserRole.Admin ? true : false;
+            ResetSelection();
         }
 
-        public void selectOrDeselectAll()
+        public void selectAll()
         {
-            
-            int num = ConsolesDataGrid.Items.Count;
+            if (!IsAdmin) return;
 
-            for(int i = 0; i < num; ++i)
+            foreach (var console in retroConsoles)
             {
-                ConsolesDataGrid.SelectedIndex = i;
+                    console.IsSelected = true;
+            }
 
-                this.CheckBox_Checked(this, new RoutedEventArgs());
+            allSelected = true;
+
+        }
+
+        public void deleteSelection()
+        {
+            if (!IsAdmin) return;
+
+            var selected = retroConsoles.Where(c => c.IsSelected).ToList();
+            if (selected.Count == 0)
+            {
+                MessageBox.Show("No rows selected.");
+                return;
+            }
+
+            if (MessageBox.Show($"Are you sure you want to delete {selected.Count} item(s)?", "Confirm Delete", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                foreach (var item in selected)
+                {
+                    retroConsoles.Remove(item);
+                }
             }
         }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        public void deselectAll()
         {
-            retroConsoles[ConsolesDataGrid.SelectedIndex].IsSelected = !retroConsoles[ConsolesDataGrid.SelectedIndex].IsSelected;
+            if (!IsAdmin) return;
+
+            foreach (var console in retroConsoles)
+            {
+                console.IsSelected = false;
+            }
+
+            allSelected = false;
+
+        }
+
+        public void ResetSelection()
+        {
+            foreach (var console in retroConsoles)
+            {
+                console.IsSelected = false;
+            }
+        }
+
+        private void Hyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Hyperlink hyperlink && hyperlink.Tag is RetroConsole selectedConsole)
+            {
+                mainWindow.hyperLink(selectedConsole);
+            }
+               
         }
     }
 }

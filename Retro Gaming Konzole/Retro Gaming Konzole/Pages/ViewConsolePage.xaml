@@ -1,0 +1,114 @@
+﻿<Page x:Class="Retro_Gaming_Konzole.Pages.ViewConsolePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Retro_Gaming_Konzole.Pages"
+      xmlns:fa5="http://schemas.fontawesome.com/icons/"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="450"
+      Title="ViewConsolePage">
+
+    <Border Padding="10">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.RowSpan="3">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Image 
+                    Grid.Column="0"
+                    Margin="5"   
+                    Stretch="UniformToFill"
+                    x:Name="previewImage"
+                    ToolTip="Imported image"/>
+
+                <Grid Grid.Column="1">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.8*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0">
+                        <TextBlock
+                             Text="Name:"
+                             Foreground="#222625"
+                             FontSize="12"
+                             FontWeight="DemiBold"/>
+                        <TextBlock FontSize="5"/>
+                        <TextBlock
+                             Text="NameOfTheConsole"
+                             Foreground="#222625"
+                             FontSize="18"
+                             FontWeight="DemiBold"
+                             x:Name="consoleNameTextBlock"
+                             TextWrapping="WrapWithOverflow"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1">
+                        <TextBlock
+                             Text="Release Year:"
+                             Foreground="#222625"
+                             FontSize="12"
+                             FontWeight="DemiBold"/>
+                        <TextBlock FontSize="5"/>
+                        <TextBlock
+                             Text="YearReleased"
+                             Foreground="#222625"
+                             FontSize="18"
+                             FontWeight="DemiBold"
+                             x:Name="consoleReleaseYearTextBlock"
+                             TextWrapping="WrapWithOverflow"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="2">
+                        <TextBlock
+                             Text="Date Created:"
+                             Foreground="#222625"
+                             FontSize="12"
+                             FontWeight="DemiBold"/>
+                        <TextBlock FontSize="5"/>
+                        <TextBlock
+                             Text="dd.mm.yyyy."
+                             Foreground="#222625"
+                             FontSize="18"
+                             FontWeight="DemiBold"
+                             x:Name="dateCreatedTextBlock"
+                             TextWrapping="WrapWithOverflow"
+                             ToolTip="Date when the element is created and added to table"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <DockPanel>
+                    <StatusBar DockPanel.Dock="Bottom" Background="Transparent">
+                        <StatusBarItem>
+                            <TextBlock x:Name="WordCountTextBlock" Text="Words: 0" 
+                                   ToolTip="Word Count in Rich Text Box" Foreground="#222625"/>
+                        </StatusBarItem>
+                    </StatusBar>
+
+                    <FlowDocumentScrollViewer 
+                        x:Name="rtfViewer"
+                        IsToolBarVisible="False"
+                        VerticalScrollBarVisibility="Auto"
+                        Margin="10" />
+                </DockPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>

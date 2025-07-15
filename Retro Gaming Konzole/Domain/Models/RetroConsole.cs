@@ -8,31 +8,48 @@ using System.Threading.Tasks;
 namespace Domain.Models
 {
     [Serializable]
-    public class RetroConsole 
+    public class RetroConsole : INotifyPropertyChanged
     {
 
-        
-        public bool IsSelected { get; set; }
         public string name { get; set; } //tekstualno polje koje nije deo rtf
         public string imgPath { get; set; } //put ka slici
         public string rtfPath { get; set; } //put ka rtf
-        public int consoleExpirience { get; set; } //brojevno polje, u ovom slucaju ocena gejming iskustva nad konzolom (brojevi 1-5; 1-lose iskustvo; 5-odlicno)
-        public string expirience { get; set; }
+        public int consoleReleaseYear { get; set; } //brojevno polje koje mora uneti korisnik
         public string date {  get; set; } //datum dodavanja
+
+        private bool _isSelected;
+        public bool IsSelected
+        {
+            get => _isSelected;
+            set
+            {
+                if (_isSelected != value)
+                {
+                    _isSelected = value;
+                    OnPropertyChanged(nameof(IsSelected));
+                }
+            }
+        }
 
         public RetroConsole()
         {
         }
 
-        public RetroConsole(string name, string imgPath, string rtfPath, int consoleExpirience)
+        public RetroConsole(string name, string imgPath, string rtfPath, int consoleReleaseYear)
         {
-            this.IsSelected = false;
             this.name = name;
             this.imgPath = imgPath;
             this.rtfPath = rtfPath;
-            this.consoleExpirience = consoleExpirience;
-            this.date = DateTime.Now.Date.ToString().Split(" ")[0];
+            this.consoleReleaseYear = consoleReleaseYear;
+            this.date = DateTime.Now.ToString("dd.MM.yyyy.");
+            this.IsSelected = false;
+        }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
     }

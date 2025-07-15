@@ -1,7 +1,5 @@
-﻿using Domain.Enums;
-using Domain.Helpers;
-using Domain.Models;
-using Microsoft.Xaml.Behaviors;
+﻿using Domain.Models;
+using Notification.Wpf;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,24 +20,41 @@ using System.Windows.Shapes;
 namespace Retro_Gaming_Konzole.Pages
 {
     /// <summary>
-    /// Interaction logic for AddConsolePage.xaml
+    /// Interaction logic for EditConsolePage.xaml
     /// </summary>
-    public partial class AddConsolePage : Page
+    public partial class EditConsolePage : Page
     {
-        
+        private RetroConsole retroConsole;
         MainWindow mainWindow;
-
-        public AddConsolePage()
+        public EditConsolePage(RetroConsole retroConsole)
         {
             InitializeComponent();
+            this.retroConsole = retroConsole;
+            mainWindow = (MainWindow)Application.Current.MainWindow;
             LoadSystemColors();
             FontFamilyComboBox.SelectedIndex = 51;
             FontSizeComboBox.SelectedIndex = 2;
             FontColorComboBox.SelectedIndex = 7;
-            mainWindow = (MainWindow)Application.Current.MainWindow;
+
+            consoleNameTextBox.Text = retroConsole.name;
+            consoleReleaseYearTextBox.Text = retroConsole.consoleReleaseYear.ToString(); 
+            consoleImgPathTextBox.Text = retroConsole.imgPath;
+
+            if (File.Exists(retroConsole.imgPath))
+            {
+                previewImage.Source = new BitmapImage(new Uri(retroConsole.imgPath));
+            }
+
+            if (File.Exists(retroConsole.rtfPath))
+            {
+                using (FileStream fs = new FileStream(retroConsole.rtfPath, FileMode.Open, FileAccess.Read))
+                {
+                    var range = new TextRange(EditorRichTextBox.Document.ContentStart, EditorRichTextBox.Document.ContentEnd);
+                    range.Load(fs, DataFormats.Rtf);
+                }
+            }
         }
 
-        //loading all system colors
         private void LoadSystemColors()
         {
             FontColorComboBox.ItemsSource = typeof(Colors)
@@ -52,7 +67,7 @@ namespace Retro_Gaming_Konzole.Pages
         {
             if (FontFamilyComboBox.SelectedItem != null && !EditorRichTextBox.Selection.IsEmpty)
             {
-               
+                
                 EditorRichTextBox.Selection.ApplyPropertyValue(Inline.FontFamilyProperty, FontFamilyComboBox.SelectedItem);
             }
         }
@@ -65,7 +80,7 @@ namespace Retro_Gaming_Konzole.Pages
                 ComboBoxItem selectedItem = FontSizeComboBox.SelectedItem as ComboBoxItem;
 
                 if (selectedItem != null && double.TryParse(selectedItem.Content.ToString(), out double size))
-                    
+                   
                     EditorRichTextBox.Selection.ApplyPropertyValue(TextElement.FontSizeProperty, size);
             }
 
@@ -80,7 +95,6 @@ namespace Retro_Gaming_Konzole.Pages
 
                 if (!EditorRichTextBox.Selection.IsEmpty)
                 {
-                    
                     EditorRichTextBox.Selection.ApplyPropertyValue(TextElement.ForegroundProperty, brush);
                 }
             }
@@ -125,10 +139,8 @@ namespace Retro_Gaming_Konzole.Pages
             EditorRichTextBox.Document.Blocks.Clear();
         }
 
-
-        public RetroConsole sendData()
+        public bool returnData()
         {
-            RetroConsole retroConsole = null;
             bool oneOrMoreError = false;
 
             if (consoleNameTextBox.Text == string.Empty)
@@ -149,7 +161,8 @@ namespace Retro_Gaming_Konzole.Pages
                 oneOrMoreError = true;
             }
 
-            if (consoleImgPathTextBox.Text == string.Empty) {
+            if (consoleImgPathTextBox.Text == string.Empty)
+            {
                 mainWindow.SendToastNotification("\"Image\" Error", "Image is not selected.", Notification.Wpf.NotificationType.Error);
                 oneOrMoreError = true;
             }
@@ -162,26 +175,47 @@ namespace Retro_Gaming_Konzole.Pages
                 oneOrMoreError = true;
             }
 
-            if (!oneOrMoreError) 
+            if (!oneOrMoreError)
             {
                 string path = $"rtfs\\{consoleNameTextBox.Text}.rtf";
 
-                if (!File.Exists(path))
+                //if the name is the same, so is the name of the file
+                if (consoleNameTextBox.Text == retroConsole.name || !File.Exists(path)) 
                 {
+                    try
+                    {
+                        //try to delete old rtf file
+                        File.Delete(retroConsole.rtfPath); 
+                    }
+                    catch (Exception ex) 
+                    {
+                        mainWindow.SendToastNotification("\"RTF\" Error", $"Can't delete {retroConsole.name}.rtf file.\n" +
+                                                                             $"Maybe it's used by another process.", NotificationType.Error);
+                        return false;
+                    }
+                    
+
                     using (FileStream fs = new FileStream(path, FileMode.Create))
                     {
                         range.Save(fs, DataFormats.Rtf);
                     }
 
-                    retroConsole = new RetroConsole(consoleNameTextBox.Text, consoleImgPathTextBox.Text, path, Convert.ToInt32(consoleReleaseYearTextBox.Text));
+                    retroConsole.name = consoleNameTextBox.Text;
+                    retroConsole.imgPath = consoleImgPathTextBox.Text;
+                    retroConsole.rtfPath = path;
+                    retroConsole.consoleReleaseYear = Convert.ToInt32(consoleReleaseYearTextBox.Text);
 
-                    mainWindow.SendToastNotification("Success", "The console was successfully added to the table", Notification.Wpf.NotificationType.Success);
+                    mainWindow.SendToastNotification("Success", "The console fields have been edited successfully.", Notification.Wpf.NotificationType.Success);
+
+                    return true;
                 }
                 else
-                    mainWindow.SendToastNotification("\"Name\" Error", "Console with the same name already exists. Please, change it.", Notification.Wpf.NotificationType.Error);
+                    mainWindow.SendToastNotification("\"Name\" Error", "Console with the same new name already exists. Please, change it.", Notification.Wpf.NotificationType.Error);
             }
 
-            return retroConsole;
+
+            return false;
+
 
         }
 
@@ -201,5 +235,6 @@ namespace Retro_Gaming_Konzole.Pages
                 previewImage.Source = null;
             }
         }
+
     }
 }

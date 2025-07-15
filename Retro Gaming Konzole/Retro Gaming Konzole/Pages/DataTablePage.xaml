@@ -15,7 +15,7 @@
         x:Name="ConsolesDataGrid"
         Margin="10 5 10 0" 
         ItemsSource="{Binding retroConsoles}" 
-        IsReadOnly="True" 
+        CanUserAddRows="False" 
         Height="420"
         AutoGenerateColumns="False"
         ScrollViewer.CanContentScroll="True" 
@@ -25,15 +25,35 @@
                     <DataGridTemplateColumn Header="Select">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" HorizontalAlignment="Center" Checked="CheckBox_Checked"
-                                          x:Name="selectCheckBox"/>
+                                <CheckBox 
+                                    IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                    IsEnabled="{Binding DataContext.IsAdmin, RelativeSource={RelativeSource AncestorType=Page}}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn
-                        Header="Info"
-                        Binding="{Binding rtfPath}" />
-                    <DataGridTemplateColumn Header="Image">
+                    <DataGridTemplateColumn
+                        Header="Name" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                     <Hyperlink Click="Hyperlink_Click" Tag="{Binding}">
+                                <Run Text="{Binding name}" />
+                                    </Hyperlink>
+                                </TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <!--<DataGridTextColumn 
+                        Header="Name" 
+                        Binding="{Binding name}"
+                        IsReadOnly="True"/>-->
+                    <DataGridTextColumn 
+                        Header="Released" 
+                        Binding="{Binding consoleReleaseYear}"
+                        IsReadOnly="True"/>
+                    <DataGridTemplateColumn
+                        Header="Image"
+                        IsReadOnly="True">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Image Source="{Binding imgPath}" Width="100" Height="60" Stretch="UniformToFill"/>
@@ -42,13 +62,8 @@
                     </DataGridTemplateColumn>
                     <DataGridTextColumn
                         Header="Date Created"
-                        Binding="{Binding date}"/>
-                    <DataGridTextColumn 
-                        Header="Name" 
-                        Binding="{Binding name}"/>
-                    <DataGridTextColumn 
-                        Header="Expirience" 
-                        Binding="{Binding consoleExpirience}"/>
+                        Binding="{Binding date}"
+                        IsReadOnly="True"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
