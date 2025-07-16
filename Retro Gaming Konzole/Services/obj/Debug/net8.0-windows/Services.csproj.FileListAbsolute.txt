@@ -1,0 +1,16 @@
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\bin\Debug\net8.0-windows\Services.deps.json
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\bin\Debug\net8.0-windows\Services.dll
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\bin\Debug\net8.0-windows\Services.pdb
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\bin\Debug\net8.0-windows\Domain.dll
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\bin\Debug\net8.0-windows\Domain.pdb
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\obj\Debug\net8.0-windows\Services.csproj.AssemblyReference.cache
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\obj\Debug\net8.0-windows\Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\obj\Debug\net8.0-windows\Services.AssemblyInfoInputs.cache
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\obj\Debug\net8.0-windows\Services.AssemblyInfo.cs
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\obj\Debug\net8.0-windows\Services.csproj.CoreCompileInputs.cache
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\obj\Debug\net8.0-windows\Services.sourcelink.json
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\obj\Debug\net8.0-windows\Services.csproj.Up2Date
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\obj\Debug\net8.0-windows\Services.dll
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\obj\Debug\net8.0-windows\refint\Services.dll
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\obj\Debug\net8.0-windows\Services.pdb
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Services\obj\Debug\net8.0-windows\ref\Services.dll

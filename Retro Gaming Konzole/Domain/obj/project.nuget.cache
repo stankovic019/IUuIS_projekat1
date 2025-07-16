@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "kx+fQZMtSUY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Dimitrije\\Documents\\GitHub\\IUuIS_projekat1\\Retro Gaming Konzole\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dimitrije\\.nuget\\packages\\fontawesome5\\2.1.11\\fontawesome5.2.1.11.nupkg.sha512",
+    "C:\\Users\\Dimitrije\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.135\\microsoft.xaml.behaviors.wpf.1.1.135.nupkg.sha512",
+    "C:\\Users\\Dimitrije\\.nuget\\packages\\notification.wpf\\8.0.0\\notification.wpf.8.0.0.nupkg.sha512",
+    "C:\\Users\\Dimitrije\\.nuget\\packages\\system.valuetuple\\4.6.1\\system.valuetuple.4.6.1.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfRetroConsole xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RetroConsole>
+    <name>Game Boy</name>
+    <imgPath>C:\Users\Dimitrije\Desktop\Retro Konzole fotke\Game-Boy-FL.png</imgPath>
+    <rtfPath>rtfs\Game Boy.rtf</rtfPath>
+    <consoleReleaseYear>1989</consoleReleaseYear>
+    <date>12.07.2025.</date>
+    <IsSelected>false</IsSelected>
+  </RetroConsole>
+  <RetroConsole>
+    <name>NES</name>
+    <imgPath>C:\Users\Dimitrije\Desktop\Retro Konzole fotke\NES-Console-Set.png</imgPath>
+    <rtfPath>rtfs\NES.rtf</rtfPath>
+    <consoleReleaseYear>1983</consoleReleaseYear>
+    <date>15.07.2025.</date>
+    <IsSelected>false</IsSelected>
+  </RetroConsole>
+  <RetroConsole>
+    <name>Master System</name>
+    <imgPath>C:\Users\Dimitrije\Desktop\Retro Konzole fotke\Sega-Master-System-Set.jpg</imgPath>
+    <rtfPath>rtfs\Master System.rtf</rtfPath>
+    <consoleReleaseYear>1985</consoleReleaseYear>
+    <date>15.07.2025.</date>
+    <IsSelected>false</IsSelected>
+  </RetroConsole>
+  <RetroConsole>
+    <name>Atari 2600</name>
+    <imgPath>C:\Users\Dimitrije\Desktop\Retro Konzole fotke\Atari-2600-Wood-4Sw-Set.png</imgPath>
+    <rtfPath>rtfs\Atari 2600.rtf</rtfPath>
+    <consoleReleaseYear>1977</consoleReleaseYear>
+    <date>15.07.2025.</date>
+    <IsSelected>false</IsSelected>
+  </RetroConsole>
+  <RetroConsole>
+    <name>PlayStation One</name>
+    <imgPath>C:\Users\Dimitrije\Desktop\Retro Konzole fotke\PlayStation-SCPH-1000-with-Controller.png</imgPath>
+    <rtfPath>rtfs\PlayStation One.rtf</rtfPath>
+    <consoleReleaseYear>1994</consoleReleaseYear>
+    <date>15.07.2025.</date>
+    <IsSelected>false</IsSelected>
+  </RetroConsole>
+  <RetroConsole>
+    <name>Nintendo 64</name>
+    <imgPath>C:\Users\Dimitrije\Desktop\Retro Konzole fotke\N64-Console-Set.png</imgPath>
+    <rtfPath>rtfs\Nintendo 64.rtf</rtfPath>
+    <consoleReleaseYear>1996</consoleReleaseYear>
+    <date>15.07.2025.</date>
+    <IsSelected>false</IsSelected>
+  </RetroConsole>
+  <RetroConsole>
+    <name>HCI</name>
+    <imgPath>C:\Users\Dimitrije\Desktop\Retro Konzole fotke\hci test.png</imgPath>
+    <rtfPath>rtfs\HCI.rtf</rtfPath>
+    <consoleReleaseYear>2025</consoleReleaseYear>
+    <date>15.07.2025.</date>
+    <IsSelected>false</IsSelected>
+  </RetroConsole>
+  <RetroConsole>
+    <name>TEST DELETE</name>
+    <imgPath>C:\Users\Dimitrije\Desktop\Retro Konzole fotke\hci test.png</imgPath>
+    <rtfPath>rtfs\TEST DELETE.rtf</rtfPath>
+    <consoleReleaseYear>1</consoleReleaseYear>
+    <date>15.07.2025.</date>
+    <IsSelected>false</IsSelected>
+  </RetroConsole>
+  <RetroConsole>
+    <name>TEST DELETE 2</name>
+    <imgPath>C:\Users\Dimitrije\Desktop\Retro Konzole fotke\hci test.png</imgPath>
+    <rtfPath>rtfs\TEST DELETE 2.rtf</rtfPath>
+    <consoleReleaseYear>2</consoleReleaseYear>
+    <date>15.07.2025.</date>
+    <IsSelected>false</IsSelected>
+  </RetroConsole>
+</ArrayOfRetroConsole>

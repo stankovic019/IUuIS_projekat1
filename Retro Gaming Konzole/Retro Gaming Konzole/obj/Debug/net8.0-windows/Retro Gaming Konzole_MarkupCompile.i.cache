@@ -1,0 +1,20 @@
+﻿Retro Gaming Konzole
+1.0.0.0
+
+winexe
+C#
+.cs
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Retro Gaming Konzole\obj\Debug\net8.0-windows\
+Retro_Gaming_Konzole
+none
+false
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Retro Gaming Konzole\App.xaml
+6270365923
+
+111488252683
+204419234004
+MainWindow.xaml;Pages\AddConsolePage.xaml;Pages\DataTablePage.xaml;Pages\EditConsolePage.xaml;Pages\LoginPage.xaml;Pages\ViewConsolePage.xaml;
+
+True
+

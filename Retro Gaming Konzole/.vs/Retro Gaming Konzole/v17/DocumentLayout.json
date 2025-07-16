@@ -1,0 +1,40 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Dimitrije\\Documents\\GitHub\\IUuIS_projekat1\\Retro Gaming Konzole\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3498F698-D750-464B-BFD6-90A55480C798}|Retro Gaming Konzole\\Retro Gaming Konzole.csproj|c:\\users\\dimitrije\\documents\\github\\iuuis_projekat1\\retro gaming konzole\\retro gaming konzole\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{3498F698-D750-464B-BFD6-90A55480C798}|Retro Gaming Konzole\\Retro Gaming Konzole.csproj|solutionrelative:retro gaming konzole\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 280,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Dimitrije\\Documents\\GitHub\\IUuIS_projekat1\\Retro Gaming Konzole\\Retro Gaming Konzole\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Retro Gaming Konzole\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Dimitrije\\Documents\\GitHub\\IUuIS_projekat1\\Retro Gaming Konzole\\Retro Gaming Konzole\\MainWindow.xaml",
+              "RelativeToolTip": "Retro Gaming Konzole\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-13T13:55:56.739Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

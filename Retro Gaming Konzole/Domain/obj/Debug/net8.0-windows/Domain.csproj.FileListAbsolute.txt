@@ -1,0 +1,13 @@
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Domain\bin\Debug\net8.0-windows\Domain.deps.json
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Domain\bin\Debug\net8.0-windows\Domain.dll
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Domain\bin\Debug\net8.0-windows\Domain.pdb
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Domain\obj\Debug\net8.0-windows\Domain.csproj.AssemblyReference.cache
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Domain\obj\Debug\net8.0-windows\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Domain\obj\Debug\net8.0-windows\Domain.AssemblyInfoInputs.cache
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Domain\obj\Debug\net8.0-windows\Domain.AssemblyInfo.cs
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Domain\obj\Debug\net8.0-windows\Domain.csproj.CoreCompileInputs.cache
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Domain\obj\Debug\net8.0-windows\Domain.sourcelink.json
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Domain\obj\Debug\net8.0-windows\Domain.dll
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Domain\obj\Debug\net8.0-windows\refint\Domain.dll
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Domain\obj\Debug\net8.0-windows\Domain.pdb
+C:\Users\Dimitrije\Documents\GitHub\IUuIS_projekat1\Retro Gaming Konzole\Domain\obj\Debug\net8.0-windows\ref\Domain.dll
